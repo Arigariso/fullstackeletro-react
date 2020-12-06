@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 06-Dez-2020 às 01:03
+-- Tempo de geração: 06-Dez-2020 às 15:39
 -- Versão do servidor: 8.0.21
 -- versão do PHP: 7.4.9
 
@@ -20,6 +20,38 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `fseletro`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `categoria`
+--
+
+DROP TABLE IF EXISTS `categoria`;
+CREATE TABLE IF NOT EXISTS `categoria` (
+  `produto` int NOT NULL,
+  `categoria` varchar(45) NOT NULL,
+  `cor` varchar(45) NOT NULL,
+  KEY `produto` (`produto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Extraindo dados da tabela `categoria`
+--
+
+INSERT INTO `categoria` (`produto`, `categoria`, `cor`) VALUES
+(1, 'geladeira', 'branca'),
+(2, 'geladeira', 'cinza'),
+(3, 'geladeira', 'amarela'),
+(4, 'fogao', 'cinza'),
+(5, 'fogao', 'preto'),
+(6, 'fogao', 'branco'),
+(7, 'microondas', 'cinza'),
+(8, 'microondas', 'branco'),
+(9, 'maquinadelavar', 'branca'),
+(10, 'maquinadelavar', 'cinza'),
+(11, 'lavalouca', 'cinza '),
+(12, 'lavalouca', 'branco');
 
 -- --------------------------------------------------------
 
@@ -80,7 +112,7 @@ INSERT INTO `pedido` (`idpedido`, `nome`, `endereco`, `telefone`, `produto`, `va
 
 DROP TABLE IF EXISTS `produto`;
 CREATE TABLE IF NOT EXISTS `produto` (
-  `idproduto` int NOT NULL AUTO_INCREMENT,
+  `idproduto` int NOT NULL,
   `categoria` varchar(45) NOT NULL,
   `descricao` varchar(150) NOT NULL,
   `preco` decimal(8,2) DEFAULT NULL,
@@ -89,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `produto` (
   `link` varchar(100) NOT NULL,
   PRIMARY KEY (`idproduto`),
   UNIQUE KEY `imagem_UNIQUE` (`imagem`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `produto`
@@ -108,6 +140,16 @@ INSERT INTO `produto` (`idproduto`, `categoria`, `descricao`, `preco`, `precofin
 (10, 'maquinadelavar', 'Máquina de Lavar Brastemp 12Kg titânio com Ciclo Tira Manchas Advanced e Ciclo Antibolinha • 110V', '2539.00', '2200.50', 'maquina2.png', '/maquina2.php'),
 (11, 'lavalouca', 'Lava-Louças de Piso Brastemp BLF08AS 5 Programas Inox - 220V', '2300.00', '2089.00', 'lavalouca.jpg', '/lavalouca1.php'),
 (12, 'lavalouca', 'Lava-louças 8 Serviços Brastemp Ative! BLF08AB', '1800.00', '1619.00', 'lavalouca2.jpg', '/lavalouca2.php');
+
+--
+-- Restrições para despejos de tabelas
+--
+
+--
+-- Limitadores para a tabela `categoria`
+--
+ALTER TABLE `categoria`
+  ADD CONSTRAINT `produto` FOREIGN KEY (`produto`) REFERENCES `produto` (`idproduto`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
