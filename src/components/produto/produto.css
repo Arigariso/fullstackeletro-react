@@ -1,0 +1,60 @@
+.caixa {
+    width: 100%;
+    border: 0px solid red;
+    margin-left: 20px;
+    padding: 20px;
+    align-items: center; 
+    text-align: center;  
+    
+}
+
+.lista {
+    width: 20%;
+    border: 0px solid red;
+    margin-right: 5px;  
+    cursor: pointer; 
+}
+
+.box {
+    width: 75%;
+    border: 0px solid red;
+    margin-left: 290px;
+    margin-top: -370px;    
+}
+
+
+.box img {
+    width: 200px;
+    padding-left: 15px;
+    margin-bottom: 5px;
+    
+    
+}
+
+.descricao .descritivo{
+   text-align: center;
+   
+}
+
+
+
+.descricao .preco-antes{
+    text-align: center; 
+    color: red;  
+}
+
+.descricao .preco-final{
+    text-decoration: line-through;
+    text-align: center;     
+}
+
+
+
+.descricao .preço-atual {
+    color: red;
+    line-height: 0px;
+}
+
+
+
+
