@@ -1,0 +1,28 @@
+.caixa {
+    border: 0px solid red;
+    width: 100%;
+    
+}
+
+.box_loja {
+    display: flex;
+
+}
+
+
+.card {
+    width: 400px; 
+    
+}
+
+.rio {
+    width: 505px;
+}
+
+.mg {
+    width: 400px;
+}
+
+.sp {
+    width: 380px;
+}
